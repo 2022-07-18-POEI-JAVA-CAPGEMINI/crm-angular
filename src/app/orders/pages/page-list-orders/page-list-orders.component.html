@@ -3,13 +3,19 @@
   <!-- <button (click)="changeTitle()">change title</button> -->
   <app-table-light [headers]="headers" *ngIf="collection$ |async as collection">
     <tr *ngFor="let item of collection">
-      <td>{{ item.typePresta }}</td>
+      <td>{{ item.typePresta |uppercase }}</td>
       <td>{{ item.client }}</td>
       <td>{{ item.nbJours }}</td>
-      <td>{{ item.tjmHt }}</td>
-      <td>{{ item.nbJours |total : item.tjmHt }}</td>
-      <td>{{ item.nbJours |total : item.tjmHt : item.tva }}</td>
-      <td>{{ item.state }}</td>
+      <td>{{ item.tjmHt |currency }}</td>
+      <td>{{ item.nbJours |total : item.tjmHt |currency }}</td>
+      <td>{{ item.nbJours |total : item.tjmHt : item.tva |currency }}</td>
+      <td>
+        <select (change)="changeState(item, $event)">
+          <option [value]="state" [selected]="item.state === state" *ngFor="let state of states">
+            {{ state }}
+          </option>
+        </select>
+      </td>
     </tr>
   </app-table-light>
 </app-template-full-width>
