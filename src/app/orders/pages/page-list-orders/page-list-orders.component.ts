@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Order } from '../../models/order';
 import { OrdersService } from '../../services/orders.service';
 
@@ -9,11 +10,12 @@ import { OrdersService } from '../../services/orders.service';
 })
 export class PageListOrdersComponent implements OnInit {
   public title: string;
-  public collection!: Order[];
+  public collection$: Observable<Order[]>;
   public headers: string[];
 
   constructor(private ordersService: OrdersService) {
     this.title = 'list of orders';
+    this.collection$ = this.ordersService.collection$;
     this.headers = [
       'Type',
       'Client',
@@ -24,9 +26,6 @@ export class PageListOrdersComponent implements OnInit {
       'Status',
     ];
 
-    this.ordersService.collection$.subscribe((data) => {
-      this.collection = data;
-    });
   }
 
   ngOnInit(): void {}
@@ -34,4 +33,10 @@ export class PageListOrdersComponent implements OnInit {
   public changeTitle(): void {
     this.title = 'title changed';
   }
+
+  // public total(val: number, coef: number, tva?: number): number {
+  //   console.log('total called');
+  //   if (tva) return val * coef * (1 + tva / 100);
+  //   return val * coef;
+  // }
 }
