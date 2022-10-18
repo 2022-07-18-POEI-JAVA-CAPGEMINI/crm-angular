@@ -41,34 +41,14 @@
       "id": 4
     },
     {
-      "tjmHt": 1200,
-      "nbJours": 8,
-      "tva": 20,
-      "state": "OPTION",
-      "typePresta": "coaching",
-      "client": "Modis",
-      "comment": "Merci Modis pour les 10k",
-      "id": 5
-    },
-    {
-      "tjmHt": 1200,
-      "nbJours": 1,
-      "tva": 20,
-      "state": "CANCELED",
-      "typePresta": "azfzafaz",
-      "client": "azffazfza",
-      "comment": "afzfzafaz",
-      "id": 6
-    },
-    {
-      "tjmHt": 1200,
-      "nbJours": 1,
+      "typePresta": "test",
+      "client": "tutu",
+      "nbJours": 5,
+      "tjmHt": 20,
       "tva": 20,
       "state": "CONFIRMED",
-      "typePresta": null,
-      "client": null,
-      "comment": null,
-      "id": 7
+      "comment": "test",
+      "id": 5
     }
   ],
   "clients": [
