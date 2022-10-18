@@ -29,7 +29,7 @@
   <div class="form-group">
     <label for="state">state</label>
     <select class="form-control" id="state" formControlName="state">
-      <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+      <option *ngFor="let state of states" [ngValue]="state">{{ state }}</option>
     </select>
   </div>
 
